@@ -1,5 +1,18 @@
 /* uso de variables para todo el documento */
 :root {
+    /*Paleta de colores*/
+    --azules-1: #2C63A4;
+    --azules-2: #6B798A;
+    --azules-3: #517396;
+    --azules-4: #0A5DC1;
+    --azules-5: #024FAC;
+    --amaril-1: #FBD933;
+    --amaril-2: #D2CA9F;
+    --amaril-3: #EFD971;
+    --amaril-4: #FFD300;
+    --rojos-1: #FB6333;
+    --rojos-2: #FF3D00;
+
     --primary-color: #2c63a4;
     --secondary-color: #ff9800;
     --font-color: #333;
@@ -27,17 +40,100 @@ main {
     height: 90%;
     margin: 20px auto;
     display: grid;
-    grid-template-rows: 150px 90px 1fr 150px;
+    grid-template-columns: auto auto;
     grid-template-rows: auto;
+    gap: 0.5rem;
+    grid-template-areas:
+        "my-header my-header"
+        "my-nav my-sectioni"
+        "my-footer my-footer";
 }
-/* Estilos para el encabezado bde las paginas */
+/* Estilos para el encabezado de las paginas */
 .encabezadopri {
+    grid-area: my-header;
     display: flex;
     justify-content: center;
-    
-    background-color: var(--primary-color);
+    background-color: var(--azules-5);
 }
 .encabezadopri > h1 {
     font-family: h1h2font, Arial, sans-serif;
-    color: var(--background-color);
+    color: var(--rojos-1);
+}
+/* Estilos para el Pie de Paginas*/
+.piepri {
+    grid-area: my-footer;
+    background-color: var(--azules-5);
+}
+.piepri > h2 {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0;
+    color: var(--rojos-1);
+    font-family: h1h2font, Arial, sans-serif;
+}
+.piepri > p {
+    color: var(--rojos-1);
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+.iconos {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+.iconos > i {
+    font-size: 1.5rem;
+    color: var(--rojos-1)
+}
+.iconos > i:hover{
+    cursor: pointer;
+    color: var(--amaril-2)
+}
+
+/*Estilos menu de navegacion*/
+.navpri {
+    grid-area: my-nav;
+    background-color: var(--amaril-3);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+    align-items: start;
+    padding: 1rem 0 1rem 10px;
+}
+.btnmenuini, .btnmenu {
+    text-align: center;
+    border: 1px solid var(--rojos-2);
+    padding: 10px 10px;
+    width: 110px;
+}
+.btnmenuini {
+    background-color: var(--rojos-2);
+    
+}
+.btnmenuini > a {
+    color: var(--amaril-2);
+    text-decoration: none;
+    text-transform: none;
+}
+.btnmenu > a {
+    color: var(--azules-4);
+    text-decoration: none;
+    text-transform: none;
+}
+.btnmenu:hover {
+    background-color: var(--rojos-2);
+}
+.btnmenu > a:hover {
+    color: var(--amaril-2);
+}
+/*Estilos para la seccion de la vista Index*/
+.sectionindex {
+    grid-area: my-sectioni;
+    background-color: var(--azules-3);
 }
