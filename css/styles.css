@@ -40,7 +40,7 @@ main {
     height: 90%;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 135px 1fr;
     grid-template-rows: auto;
     gap: 0.5rem;
     grid-template-areas:
@@ -111,6 +111,8 @@ main {
     border: 1px solid var(--rojos-2);
     padding: 10px 10px;
     width: 110px;
+    box-shadow: 5px 5px var(--azules-2);
+    border-radius: 5px;
 }
 .btnmenuini {
     background-color: var(--rojos-2);
@@ -135,5 +137,55 @@ main {
 /*Estilos para la seccion de la vista Index*/
 .sectionindex {
     grid-area: my-sectioni;
-    background-color: var(--azules-3);
+    /*background-color: var(--azules-3);*/
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+        "my-indexaside"
+        "my-indexarti1"
+        "my-indexarti2";
 }
+.fontN {
+    font-family: h1h2font, Arial, sans-serif;
+}
+/*Estilos para el Aside*/
+.asideindex {
+    grid-area: my-indexaside;
+    border: 1px solid var(--amaril-1);
+    background-color: var(--amaril-3);
+    margin: 0.5rem;
+    border-radius: 5px;
+    color: var(--rojos-1);
+    box-shadow: 5px 5px var(--amaril-2);
+}
+.asideindex > h3, p {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+}
+/*Estilos para los articulos*/
+.articleindex1 {
+    grid-area: my-indexarti1;
+    
+}
+.articleindex2 {
+    grid-area: my-indexarti2;
+}
+.articleindex1, .articleindex2 {
+    border: 1px solid var(--azules-5);
+    border-radius: 5px;
+    margin: 0.5rem;
+    box-shadow: 5px 5px var(--azules-2);
+}
+.articleindex1 > h3, .articleindex2 > h3 {
+    color: var(--rojos-1);
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+}
+.articleindex1 > p, .articleindex2 > p {
+    line-height: 23px;
+    text-align: justify;
+    padding: 0 1rem;
+    text-indent: 30px;
+}
+
