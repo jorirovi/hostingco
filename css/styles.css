@@ -12,11 +12,9 @@
     --amaril-4: #FFD300;
     --rojos-1: #FB6333;
     --rojos-2: #FF3D00;
-
-    --primary-color: #2c63a4;
-    --secondary-color: #ff9800;
-    --font-color: #333;
     --background-color: #f4f4f4;
+    --font-s: 12px;
+    --font-m: 16px
 }
 /*estilo de letra para el encabezado y pie de pagina */
 @font-face {
@@ -36,12 +34,10 @@ body {
 }
 /* Estilos para el contenedor principal de las paginas */
 main {
-    width: 90%;
-    height: 90%;
-    margin: 20px auto;
+    margin: 20px 10px;
     display: grid;
-    grid-template-columns: 135px 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: 100px 1fr 110px;
     gap: 0.5rem;
     grid-template-areas:
         "my-header my-header"
@@ -98,7 +94,7 @@ main {
 /*Estilos menu de navegacion*/
 .navpri {
     grid-area: my-nav;
-    background-color: var(--amaril-3);
+    background-color: var(--azules-5);
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -106,13 +102,17 @@ main {
     align-items: start;
     padding: 1rem 0 1rem 10px;
 }
+.navpri > div > a {
+    font-size: var(--font-s);
+}
 .btnmenuini, .btnmenu {
     text-align: center;
-    border: 1px solid var(--rojos-2);
+    border: 1px solid var(--amaril-3);
     padding: 10px 10px;
-    width: 110px;
+    width: 90px;
     box-shadow: 5px 5px var(--azules-2);
     border-radius: 5px;
+    background-color: var(--amaril-3);
 }
 .btnmenuini {
     background-color: var(--rojos-2);
@@ -124,12 +124,13 @@ main {
     text-transform: none;
 }
 .btnmenu > a {
-    color: var(--azules-4);
+    color: var(--azules-5);
     text-decoration: none;
     text-transform: none;
 }
 .btnmenu:hover {
     background-color: var(--rojos-2);
+    border-color: var(--amaril-3);
 }
 .btnmenu > a:hover {
     color: var(--amaril-2);
@@ -140,7 +141,7 @@ main {
     /*background-color: var(--azules-3);*/
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: 100px 200px 200px;
     grid-template-areas: 
         "my-indexaside"
         "my-indexarti1"
@@ -159,9 +160,15 @@ main {
     color: var(--rojos-1);
     box-shadow: 5px 5px var(--amaril-2);
 }
-.asideindex > h3, p {
+.asideindex > h3 {
     margin: 0.5rem 0;
     padding-left: 1rem;
+    font-size: var(--font-m);
+}
+.asideindex > p {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    font-size: var(--font-s);
 }
 /*Estilos para los articulos*/
 .articleindex1 {
@@ -176,24 +183,27 @@ main {
     border-radius: 5px;
     margin: 0.5rem;
     box-shadow: 5px 5px var(--azules-2);
+    overflow: auto;
 }
 .articleindex1 > h3, .articleindex2 > h3 {
     color: var(--rojos-1);
     margin: 0.5rem 0;
     padding-left: 1rem;
+    font-size: var(--font-m);
 }
 .articleindex1 > p, .articleindex2 > p {
-    line-height: 23px;
-    text-align: justify;
-    padding: 0 1rem;
-    text-indent: 30px;
+    line-height: 20px;
+    text-align: start;
+    padding: 0.5rem 1rem;
+    text-indent: 5px;
+    font-size: var(--font-s);
 }
 /*Estilos para el servicio*/
 /*Section Service*/
 .sectionservice {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: 50px 1fr;
     grid-template-areas: 
         "my-section1"
         "my-section2";
@@ -212,6 +222,7 @@ main {
 .articleservice1 > h2 {
     color: var(--rojos-1);
     margin: 0;
+    font-size: var(--font-m);
 }
 .articleservice2 {
     grid-area: my-section2;
@@ -227,10 +238,10 @@ main {
 .galery1, .galery2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: 100px auto;
     gap: 0.5rem;
     grid-row: 1;
-    margin: 1rem;
+    margin: 0;
 }
 .galery1 {
     grid-area: my-galery1;
@@ -240,9 +251,10 @@ main {
 }
 .leyenda1, .leyenda2, .leyenda3, .leyenda4 {
     text-align: center;
-    width: 200px;
+    width: 100px;
     font-family: h1h2font, Arial, sans-serif;
     color: var(--rojos-1);
+    font-size: var(--font-s);
 }
 .imagen1, .imagen2 {
     grid-row: 1;
@@ -256,10 +268,120 @@ main {
 .leyenda3, .leyenda4 {
     grid-row: 4;
 }
-img {
-    width: 200px;
+.galery1 > div > img, .galery2 > div > img {
+    width: 100px;
     height: 100px;
     border-radius: 5px;
     object-fit: cover;
     align-self: center
+}
+/*Fin de estilos de servicios*/
+
+/*Estilos para seccion del formulario*/
+.sectionpresupuesto {
+    display:flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    border: 1px solid var(--azules-5);
+    flex-direction: column;
+}
+.articlepresupuesto1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.articlepresupuesto1 > h2 {
+    font-family: h1h2font, Arial, sans-serif;
+    font-size: var(--font-m);
+    color: var(--rojos-1);
+}
+.articlepresupuesto2 {
+    justify-content: center;
+    border: 1px solid var(--rojos-2);
+    border-radius: 5px;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+}
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 20px 25px 20px 25px 20px 25px 20px auto 20px auto auto 40px;
+    gap: 0.4rem;
+    grid-template-areas: 
+        "my-lbl1 my-lbl1"
+        "my-txt1 my-txt1"
+        "my-lbl2 my-lbl2"
+        "my-txt2 my-txt2"
+        "my-lbl3 my-lbl3"
+        "my-txt3 my-txt3"
+        "my-lbl4 my-lbl4"
+        "my-txt4 my-txt4"
+        "my-lbl5 my-lbl5"
+        "my-txt5 my-txt5"
+        "my-lbl6 my-txt6";
+
+}
+.lbl1 {
+    grid-area:my-lbl1;
+}
+.txt1 {
+    grid-area:my-txt1;
+}
+.lbl2 {
+    grid-area:my-lbl2;
+}
+.txt2 {
+    grid-area:my-txt2
+}
+.lbl3 {
+    grid-area:my-lbl3;
+}
+.txt3 {
+    grid-area:my-txt3;
+}
+.lbl4 {
+    grid-area:my-lbl4;
+}
+.txt4 {
+    grid-area:my-txt4;
+}
+.lbl5 {
+    grid-area:my-lbl5;
+}
+.txt5 {
+    grid-area:my-txt5;
+}
+.lbl6 {
+    grid-area:my-lbl6;
+}
+.txt6 {
+    grid-area:my-txt6;
+    width: 20px;
+    height: 20px;
+    justify-self: center;
+    align-self: center;
+}
+label {
+    font-size: var(--font-s);
+    color: var(--rojos-1);
+    align-self: center;
+}
+input {
+    border-radius: 5px;
+    border-color: var(--rojos-1);
+    border-top: 1px solid var(--rojos-1);
+    border-left: 1px solid var(--rojos-1);
+    font-size: var(--font-s);
+}
+.btn1, .btn2 {
+    height: 45px;
+    background-color: var(--rojos-1);
+    color: var(--amaril-3);
+    border-color: var(--rojos-1);
+    border-radius: 4px;
+}
+.btn1:hover, .btn2:hover {
+    cursor: pointer;
+    background-color: var(--amaril-3);
+    color: var(--rojos-1)
 }

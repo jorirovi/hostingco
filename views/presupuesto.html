@@ -29,8 +29,31 @@
         <!-- Seccion principal de la pagina Presupuesto-->
         <section class="sectionpresupuesto">
             <!-- Articulos de la pagina Presupuesto -->
-            <article class="articlepresupuesto1"></article>
+            <article class="articlepresupuesto1">
+                <h2>Solicita tu presupuesto:</h2>
+            </article>
             <article class="articlepresupuesto2">
+                <form action="./servicio.html" method="post">
+                    <label class="lbl1" for="nombre">Nombre:</label>
+                    <input class="txt1" type="text" name="nombre" id="nombre" value="" required>
+                    <label class="lbl2" for="email">Email:</label>
+                    <input class="txt2" type="email" name="email" id="email" value="" required>
+                    <label class="lbl3" for="telefono">Teléfono:</label>
+                    <input class="txt3 "type="tel" name="telefono" id="telefono" value="" required>
+                    <label class="lbl4" for="servicio">Servicio requerido:</label>
+                    <select class="txt4" name="servicio" id="servicio" multiple>
+                        <option value="hosting" selected>Hosting</option>
+                        <option value="webs">Páginas Webs</option>
+                        <option value="ia">IA</option>
+                        <option value="iot">IoT</option>
+                    </select>
+                    <label class="lbl5" for="informacion">Solicito Información sobre:</label>
+                    <textarea class="txt5" name="informacion" id="informacion" cols="30" rows="6" required placeholder="Danos un resumen de lo requerido"></textarea>
+                    <label class="lbl6"for="politica">Acepta la politica de privacidad de la compañía</label>
+                    <input class="txt6" type="checkbox" name="politica" id="politica" required>
+                    <input class="btn1" type="submit">
+                    <input class="btn2" type="reset">
+                </form>
             </article>
         </section>
         <!-- Pie de pagina-->
