@@ -12,9 +12,11 @@
     --amaril-4: #FFD300;
     --rojos-1: #FB6333;
     --rojos-2: #FF3D00;
+    --negro-1: #333;
     --background-color: #f4f4f4;
     --font-s: 12px;
-    --font-m: 16px
+    --font-m: 16px;
+    --font-l: 20px;
 }
 /*estilo de letra para el encabezado y pie de pagina */
 @font-face {
@@ -34,6 +36,7 @@ body {
 }
 /* Estilos para el contenedor principal de las paginas */
 main {
+    height: 100vh;
     margin: 20px 10px;
     display: grid;
     grid-template-columns: 110px 1fr;
@@ -95,14 +98,19 @@ main {
 .navpri {
     grid-area: my-nav;
     background-color: var(--azules-5);
+    
+}
+.botonera {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
     flex-wrap: nowrap;
     align-items: start;
     padding: 1rem 0 1rem 10px;
+    position: sticky;
+    top:0;
 }
-.navpri > div > a {
+.botonera > div > a {
     font-size: var(--font-s);
 }
 .btnmenuini, .btnmenu {
@@ -141,18 +149,15 @@ main {
     /*background-color: var(--azules-3);*/
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 100px 200px 200px;
-    grid-template-areas: 
-        "my-indexaside"
-        "my-indexarti1"
-        "my-indexarti2";
+    grid-template-rows: 100px 250px 320px;
+
 }
 .fontN {
     font-family: h1h2font, Arial, sans-serif;
 }
 /*Estilos para el Aside*/
 .asideindex {
-    grid-area: my-indexaside;
+    /*grid-area: my-indexaside;*/
     border: 1px solid var(--amaril-1);
     background-color: var(--amaril-3);
     margin: 0.5rem;
@@ -164,6 +169,7 @@ main {
     margin: 0.5rem 0;
     padding-left: 1rem;
     font-size: var(--font-m);
+    font-family: h1h2font, Arial, sans-serif;
 }
 .asideindex > p {
     margin: 0.5rem 0;
@@ -171,13 +177,6 @@ main {
     font-size: var(--font-s);
 }
 /*Estilos para los articulos*/
-.articleindex1 {
-    grid-area: my-indexarti1;
-    
-}
-.articleindex2 {
-    grid-area: my-indexarti2;
-}
 .articleindex1, .articleindex2 {
     border: 1px solid var(--azules-5);
     border-radius: 5px;
@@ -198,8 +197,10 @@ main {
     text-indent: 5px;
     font-size: var(--font-s);
 }
+
 /*Estilos para el servicio*/
 /*Section Service*/
+
 .sectionservice {
     display: grid;
     grid-template-columns: auto;
@@ -223,6 +224,7 @@ main {
     color: var(--rojos-1);
     margin: 0;
     font-size: var(--font-m);
+    font-family: h1h2font, Arial, sans-serif;
 }
 .articleservice2 {
     grid-area: my-section2;
@@ -275,6 +277,10 @@ main {
     object-fit: cover;
     align-self: center
 }
+.galery2 > .imagen3 {
+    background-color: var(--negro-1);
+    border-radius: 5px;
+}
 /*Fin de estilos de servicios*/
 
 /*Estilos para seccion del formulario*/
@@ -282,8 +288,9 @@ main {
     display:flex;
     flex-wrap: nowrap;
     gap: 0.5rem;
-    border: 1px solid var(--azules-5);
+    /*border: 1px solid var(--azules-5);*/
     flex-direction: column;
+    justify-content: space-evenly;
 }
 .articlepresupuesto1 {
     display: flex;
@@ -296,11 +303,10 @@ main {
     color: var(--rojos-1);
 }
 .articlepresupuesto2 {
-    justify-content: center;
-    border: 1px solid var(--rojos-2);
-    border-radius: 5px;
     margin: 0.5rem 0.5rem;
     padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
 }
 form {
     display: grid;
@@ -319,7 +325,9 @@ form {
         "my-lbl5 my-lbl5"
         "my-txt5 my-txt5"
         "my-lbl6 my-txt6";
-
+    border: 1px solid var(--rojos-1);
+    border-radius: 5px;
+    padding: 1rem;
 }
 .lbl1 {
     grid-area:my-lbl1;
@@ -394,7 +402,6 @@ input {
     flex-wrap: nowrap;
     flex-direction:column;
     gap: 1rem;
-    border: 1px solid var(--azules-5);
     border-radius: 5px;
     padding: 0.5rem;
     justify-content: space-between;
@@ -402,7 +409,7 @@ input {
 .articlecontacto1 {
     width:100%;
     height: 100px;
-    background-color: var(--azules-3);
+    background-color: var(--amaril-3);
     border-radius: 5px;
 }
 .articlecontacto2 {
@@ -421,4 +428,146 @@ input {
     border: 1px solid var(--rojos-2);
     border-radius: 5px;
     object-fit:cover;
+}
+
+/*parte responsiva de la pagina*/
+@media (width >= 600px) {
+    main {
+        grid-template-columns: auto;
+        grid-template-rows: 100px 76px 1fr 110px;
+        grid-template-areas: 
+            "my-header"
+            "my-nav"
+            "my-sectioni"
+            "my-footer";
+    }
+    /*menu de navegacion*/
+    .botonera {
+        flex-direction: row;
+        position: static;
+    }
+    .botonera > div > a {
+        font-size: var(--font-m);
+    }
+    .btnmenuini, .btnmenu {
+        width: 110px;
+    }
+
+    /*index*/
+
+    .sectionindex {
+        grid-template-columns: 350px 1fr;
+        grid-template-rows: auto auto;
+    }
+    .asideindex {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        grid-row: 1 / 3;
+    }
+    .articleindex1 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        
+    }
+    .articleindex2 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    .asideindex > h3 {
+        font-size:var(--font-l);
+    }
+    .asideindex > p {
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+        font-size: var(--font-m);
+    }
+    .articleindex1 > h3, .articleindex2 > h3 {
+        font-size: var(--font-l);
+    }
+    .articleindex1 > p, .articleindex2 > p {
+        font-size: var(--font-m);
+        text-align: justify;
+        text-indent: 20px;
+    }
+
+    /*Servicios*/
+
+    .sectionservice {
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "my-section1 my-section2";
+        border: none;
+    }
+    .articleservice1 {
+        background-color: var(--amaril-3);
+        border-radius: 5px;
+        box-shadow: 5px 5px var(--amaril-2);
+    }
+    .articleservice1 > h2 {
+        font-size: var(--font-l);
+        color: var(--rojos-1);
+    }
+    .articleservice2 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "my-galery1 my-galery2";
+        gap: 0.5rem;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .galery1, .galery2 {
+        grid-template-rows: 150px 50px 150px 50px;
+    }
+    .galery1 > div > img, .galery2 > div > img {
+        width: 150px;
+        height: 150px;
+    }
+    .leyenda1, .leyenda2, .leyenda3, .leyenda4 {
+        width: 150px;
+        font-size: var(--font-m);
+    }
+
+    /*Presupuestos*/
+
+    .sectionpresupuesto {
+        flex-direction: row;
+        justify-content: start;
+    }
+    .articlepresupuesto1 {
+        background-color: var(--amaril-3);
+        border-radius: 5px;
+        box-shadow: 5px 5px var(--amaril-2);
+        width: 300px;
+    }
+    label {
+        font-size: var(--font-m);
+    }
+    input {
+        font-size: var(--font-m);
+    }
+
+    /*Estilos Contacto*/
+
+    .sectioncontacto {
+        display:flex;
+        flex-wrap: nowrap;
+        flex-direction:row
+    }
+    .articlecontacto1 {
+        width:300px;
+        height: 100%;
+        background-color: var(--amaril-3);
+        border-radius: 5px;
+        box-shadow: 5px 5px var(--amaril-2);
+    }
+    .articlecontacto1 > p {
+        font-size: var(--font-m);
+        color: var(--rojos-1);
+        margin: 1rem 0.5rem;
+        overflow: auto;
+    }
 }
